@@ -39,3 +39,45 @@ With options:
 |-------|----------|---------------------------------------------------------------------------------|---------|
 | -a    | No       | Action flag: choose between `patch` or `unpatch` ; example: `-a patch`          | patch   |
 | -b    | No       | Branch flag: allows you to choose the wrapper branch to use ; example `-b main` | main    |                                                  
+
+
+
+# 2023.01.10. 적용
+
+1. SSH 접속 & sudo -i
+2. 이 repo의 "patcher.sh" get 받아오기
+```bash
+curl https://raw.githubusercontent.com/AlexPresso/VideoStation-FFMPEG-Patcher/main/patcher.sh | bash
+```
+그러며 자동 videoStation 재시작까지 shell script에서 재시작해줌
+
+```bash
+ % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  4396  100  4396    0     0  10247      0 --:--:-- --:--:-- --:--:-- 10223
+[2023-01-10 13:04:22] [INFO] ffmpeg-patcher v2.0
+[2023-01-10 13:04:23] [Message of the day]
+
+The patcher was redesigned to include an unpatch procedure.
+
+I'm aware of an issue with HEVC and I'm working on it.
+
+As always, please let me know of any issue you could have.
+
+[2023-01-10 13:04:23] [INFO] You're running DSM 7.0.1
+[2023-01-10 13:04:23] [INFO] ====== Patching procedure (branch: main) ======
+[2023-01-10 13:04:23] [INFO] Saving current ffmpeg as ffmpeg.orig
+[2023-01-10 13:04:23] [INFO] Downloading and installing ffmpeg's wrapper...
+[2023-01-10 13:04:24] [INFO] Patching CodecPack's ffmpeg41
+[2023-01-10 13:04:24] [INFO] Patching CodecPack's ffmpeg27
+[2023-01-10 13:04:24] [INFO] Saving current libsynovte.so as libsynovte.so.orig
+[2023-01-10 13:04:24] [INFO] Enabling eac3, dts and truehd
+[2023-01-10 13:04:24] [INFO] Restarting CodecPack...
+restart package [CodecPack] successfully
+[2023-01-10 13:06:37] [INFO] Restarting VideoStation...
+restart package [VideoStation] successfully
+
+[2023-01-10 13:08:02] [INFO] Done patching, you can now enjoy your movies ;) (please add a star to the repo if it worked for you)
+```
+
+3. videoStation이나 ffmpeg 버전 업데이트시마다 patch .sh 재실행해줘야 함!!
